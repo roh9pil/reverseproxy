@@ -1,0 +1,14 @@
+version: '3'
+services:
+  metabase:
+    image: nginx:latest
+    volumes:
+      - .:/usr/share/nginx/html/
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    expose:
+      - "3000"
+    networks:
+      - internal_network
+networks:
+  internal_network:
+    name: metabase_network
